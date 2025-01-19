@@ -57,7 +57,7 @@
 
     console.log("Estado final: " + visibles);
 </script>
-
+```
 
 # Ejercicio 2 (Un poco mayor: 1 jugador, 4 dientes, 1 dañado)
 
@@ -115,6 +115,7 @@
 
     console.log("Estado final: " + visibles);
 </script>
+```
 
 # Ejercicio 3 (1 jugador, 5 dientes, entre 1 y 2 dañados)
 
@@ -179,6 +180,7 @@
 
     console.log("Estado final: " + visibles);
 </script>
+```
 
 # Ejercicio 4 (2 jugadores, 3 dientes, 1 dañado)
 
@@ -244,8 +246,8 @@
 
     console.log("Estado final: " + visibles);
 </script>
-md
-Copiar
+```
+
 # Ejercicio 5 (2 jugadores, 5 dientes, entre 1 y 2 dañados)
 
 ## Enunciado
