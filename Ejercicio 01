@@ -1,0 +1,60 @@
+# Ejercicio 1 (Muy básico: 1 jugador, 3 dientes, 1 dañado)
+
+## Enunciado
+
+1. Crea un array `dientes` con **3** elementos, todos `0`.  
+2. Selecciona una posición al azar para poner un `1` (diente dañado).  
+3. Crea un array `visibles` de 3 `"🦷"`.  
+4. Un solo jugador elige índices (0, 1, 2).  
+   - Si descubre el diente dañado, pon `"💥"` y termina el juego con **"¡El cocodrilo mordió!"**.  
+   - Si descubre un diente sano, cámbialo a `"✅"`.  
+5. Si el jugador presiona los **2** dientes sanos sin tocar el dañado, **gana**.
+
+## Código (JavaScript)
+
+```html
+<script>
+    // 1. Array con 3 dientes sanos
+    const dientes = [0, 0, 0];
+
+    // 2. Posición aleatoria para el diente dañado
+    const posicionDaniada = Math.floor(Math.random() * 3);
+    dientes[posicionDaniada] = 1;
+
+    // 3. Array visible
+    const visibles = ["🦷", "🦷", "🦷"];
+
+    let juegoTerminado = false;
+    let dientesSanosDescubiertos = 0; 
+    // Hay 2 dientes sanos (3 - 1)
+
+    while (!juegoTerminado) {
+        console.log("Estado visible: " + visibles);
+
+        let seleccion = prompt("Elige un diente (0, 1 o 2):");
+        seleccion = Number(seleccion);
+
+        if (visibles[seleccion] !== "🦷") {
+            console.log("Ese diente ya fue presionado. Elige otro.");
+        } else {
+            // ¿Es dañado?
+            if (dientes[seleccion] === 1) {
+                visibles[seleccion] = "💥";
+                console.log("¡El cocodrilo mordió! Has perdido.");
+                juegoTerminado = true;
+            } else {
+                // Diente sano
+                visibles[seleccion] = "✅";
+                dientesSanosDescubiertos++;
+
+                if (dientesSanosDescubiertos === 2) {
+                    console.log("¡Has descubierto todos los dientes sanos! ¡Ganaste!");
+                    juegoTerminado = true;
+                }
+            }
+        }
+    }
+
+    console.log("Estado final: " + visibles);
+</script>
+
